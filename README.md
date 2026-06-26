@@ -1,52 +1,69 @@
-# Musical-World
-Musical World is a web application that basically alow user to ulpoad their own songs and can listen to already uploaded songs and can add their song into favorite list.
-This project contains admin side as well as user side.
-User has to first register to the portal before uploading songs.
-The account verification mechanism have been included in the project to verify user authentication.
+# Musical World
 
-*create database named "musical_world" at back-end and import the code tables.sql file inside databse folder to get access to database*
+Musical World is a PHP-based web application that allows users to register, upload their own songs, listen to already uploaded tracks, and maintain a favorite songs list. The application features both a User Portal and an Admin Control Panel.
 
-This is basically my DBMS mini project.
-The site basically includes triggers and procedures.
-So before running the application create a trigger and a procedure at back-end(xampp or wamp any application).
+---
 
-Code for triggers and procedure are given below.
+## Features
+- **User Authentication**: Secure registration and login mechanism with email verification.
+- **Song Uploads**: Users can upload audio files along with cover images.
+- **Favorites Management**: Add/remove tracks from a personalized favorite list.
+- **Admin Panel**: Manage categories, song databases, and system configurations.
+- **DBMS Optimization**: Implements database triggers and stored procedures for efficient data management.
 
-****Trigger code****
+---
 
-*trigger to keep track of user contributions*
-```mysql
-CREATE TRIGGER `IncrementCount` AFTER INSERT ON `upload_albums`
- FOR EACH ROW update user set user.contributions = user.contributions + 1 where new.singer_id = user.user_id
- ```
- ****procedure code****
- 
- *stored procedure to upload songs*
- ```mysql
- DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `uploadsongs`(IN `singer_id` INT(11), IN `song_name` VARCHAR(255), IN `song_format` VARCHAR(255), IN `singer_name` VARCHAR(255), IN `song_image` VARCHAR(255), IN `audio_file` VARCHAR(255))
-    NO SQL
-INSERT INTO upload_albums(`singer_id`,`song_name`,`song_format`,`singer_name`,`song_image`,`audio_file`) VALUES(singer_id,song_name,song_format,singer_name,song_image,audio_file)$$
-DELIMITER ;
-```
-```
-Admin Panel Username and Password
-username:vijaymahes9080@gmail.com
-password:vijay123
-```
-#  Note: do not forget to add your email credentials validate.php and activate_email.php file so as to send email notifications
+## Database Setup & Configuration
 
-## [Download project report here](https://bit.ly/3WuzylB)
+1. **Create Database**: Create a database named `musical_world` on your MySQL server (using XAMPP, WAMP, or any other server stack).
+2. **Import Schema**: Import the `database/tables.sql` file into your database to create the necessary tables.
+3. **Database Triggers**:
+   Run the following trigger at your database back-end to keep track of user uploads/contributions:
+   ```sql
+   CREATE TRIGGER `IncrementCount` AFTER INSERT ON `upload_albums`
+   FOR EACH ROW 
+   UPDATE user SET user.contributions = user.contributions + 1 
+   WHERE new.singer_id = user.user_id;
+   ```
+4. **Stored Procedures**:
+   Run the following stored procedure code to enable song uploads:
+   ```sql
+   DELIMITER $$
+   CREATE DEFINER=`root`@`localhost` PROCEDURE `uploadsongs`(
+       IN `singer_id` INT(11), 
+       IN `song_name` VARCHAR(255), 
+       IN `song_format` VARCHAR(255), 
+       IN `singer_name` VARCHAR(255), 
+       IN `song_image` VARCHAR(255), 
+       IN `audio_file` VARCHAR(255)
+   )
+   NO SQL
+   BEGIN
+       INSERT INTO upload_albums(`singer_id`,`song_name`,`song_format`,`singer_name`,`song_image`,`audio_file`) 
+       VALUES(singer_id,song_name,song_format,singer_name,song_image,audio_file);
+   END$$
+   DELIMITER ;
+   ```
 
+---
 
-Some Glimps....
+## Configuration & Credentials
 
-![screenshot 56](https://user-images.githubusercontent.com/38497682/52524811-476dc100-2cc7-11e9-9269-acc1bf00997c.png)
+### SMTP Email Configuration
+To send confirmation and password reset emails:
+1. Open [validate.php](file:///d:/BACKUP/projects/PHP%20project/Musical-World/validate.php) and [activate_email.php](file:///d:/BACKUP/projects/PHP%20project/Musical-World/activate_email.php).
+2. Set your SMTP host credentials (username and password) where prompted in the code.
 
+### Admin Panel Credentials
+* **Username/Email**: `vijaymahes9080@gmail.com`
+* **Password**: `vijay123`
 
-![screenshot 57](https://user-images.githubusercontent.com/38497682/52524822-610f0880-2cc7-11e9-8ad6-ff56945583d0.png)
+---
 
+## Screenshots
 
-![screenshot 61](https://user-images.githubusercontent.com/38497682/52524832-80a63100-2cc7-11e9-902a-62b0b52d14a1.png)
+![User Interface](https://user-images.githubusercontent.com/38497682/52524811-476dc100-2cc7-11e9-9269-acc1bf00997c.png)
 
+![Song Library](https://user-images.githubusercontent.com/38497682/52524822-610f0880-2cc7-11e9-8ad6-ff56945583d0.png)
 
+![Dashboard](https://user-images.githubusercontent.com/38497682/52524832-80a63100-2cc7-11e9-902a-62b0b52d14a1.png)
