@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Musical World - Kannada Songs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="icon" href="images/i1.png" />
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- font-awesome icons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- SweetAlert2 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.min.css">
+	<!--webfonts-->
+	<link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+
+	<style>
+		/* Card section style */
+		.details-card {
+			background: #f7f7f7;
+			padding: 60px 0;
+		}
+		.card-deck {
+			margin-bottom: 30px;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.08);
+			overflow: hidden;
+		}
+		.card-img img {
+			width: 100%;
+			object-fit: cover;
+		}
+		.card-desc {
+			padding: 20px;
+		}
+		.card-desc h3 {
+			color: #333;
+			font-weight: 600;
+			font-size: 1.2em;
+			line-height: 1.3em;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+		.card-desc audio {
+			width: 100%;
+			margin-top: 10px;
+			margin-bottom: 15px;
+		}
+		.btn-card {
+			background-color: #1ABC9C;
+			color: #fff;
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,.16);
+			padding: .5rem 1.5rem;
+			font-size: .8rem;
+			border: 0;
+			border-radius: .125rem;
+			cursor: pointer;
+			text-transform: uppercase;
+		}
+		.btn-card:hover {
+			background: orange;
+		}
+		.col-md-3 {
+			padding-bottom: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header -->
+	<header></header>
+	<!-- //header -->
+
+	<!-- Songs Section -->
+	<section class='details-card'>
+		<div class='container'>
+			<div class='row' id="songsContainer">
+				<!-- Dynamically populated -->
+			</div>
+		</div>
+	</section>
+
+	<!-- contact top -->
+	<div class="contact-top text-center" id="more_info">
+		<div class="content-contact-top">
+			<h3 class="stat-title text-white">for more information</h3>
+			<h2 class="stat-title text-white">stay in touch</h2>
+			<p class="text-white w-75 mx-auto">Musical World a unique platform for upcoming singers.</p>
+		</div>
+	</div>
+	<!-- //contact top -->
+	<!-- contact -->
+	<div class="w3-contact py-5" id="contact">
+		<div class="container">
+			<div class="row contact-form pt-md-5">
+				<!-- contact details -->
+				<div class="col-lg-6 contact-bottom d-flex flex-column contact-right-w3ls">
+					<h5>get in touch</h5>
+					<div class="fv3-contact">
+						<div class="row">
+							<div class="col-2">
+								<span class="fas fa-envelope-open"></span>
+							</div>
+							<div class="col-10">
+								<h6>email</h6>
+								<p>
+									<a href="mailto:vijaymahes9080@gmail.com" class="text-dark">vijaymahes9080@gmail.com</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="fv3-contact my-4">
+						<div class="row">
+							<div class="col-2">
+								<span class="fas fa-phone-volume"></span>
+							</div>
+							<div class="col-10">
+								<h6>phone</h6>
+								<p>+91 9876543210</p>
+							</div>
+						</div>
+					</div>
+					<div class="fv3-contact">
+						<div class="row">
+							<div class="col-2">
+								<span class="fas fa-home"></span>
+							</div>
+							<div class="col-10">
+								<h6>address</h6>
+								<p>Musical World Project | Vijay</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 wthree-form-left my-lg-0 mt-5">
+					<h5>send us a mail</h5>
+					<div class="contact-top1">
+						<form action="#" method="get" class="contact-wthree" onsubmit="event.preventDefault(); sweetAlert('Sent','Your message has been sent successfully.','success');">
+							<div class="form-group d-flex">
+								<label>Name</label>
+								<input class="form-control" type="text" placeholder="Name" required="">
+							</div>
+							<div class="form-group d-flex">
+								<label>Email</label>
+								<input class="form-control" type="email" placeholder="Email" required="">
+							</div>
+							<div class="form-group d-flex">
+								<label>Phone</label>
+								<input class="form-control" type="text" placeholder="Phone Number" required="">
+							</div>
+							<div class="form-group d-flex">
+								<label>Message</label>
+								<textarea class="form-control" placeholder="Message" required=""></textarea>
+							</div>
+							<div class="d-flex justify-content-end">
+								<button type="submit" class="btn btn-agile btn-block w-50">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //contact -->
+	<!-- copyright -->
+	<div class="cpy-right text-center font-weight-bold text-white py-3">
+		<p>© 2026 Musical World. All rights reserved | Design by Vijay</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Database & State Script -->
+	<script src="js/db.js"></script>
+	<!-- js-->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/js/mdb.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.all.min.js"></script>
+	<!-- start-smooth-scrolling -->
+	<script src="js/move-top.js "></script>
+	<script src="js/easing.js "></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			const user = checkSession();
+			if (user) {
+				renderNavbar('Kannada Songs');
+				
+				// Set dynamic welcome text in navbar
+				const brandLink = document.querySelector('.navbar-brand');
+				if (brandLink) {
+					brandLink.href = 'profile.html';
+				}
+				
+				loadSongs();
+			}
+		});
+
+		function loadSongs() {
+			const container = document.getElementById('songsContainer');
+			const songs = SONGS_DATABASE['1']; // Kannada Category ID is '1'
+			
+			let html = '';
+			songs.forEach(song => {
+				html += `
+					<div class='col-md-3 col-sm-6'>
+						<div class='card-deck'>
+							<div class='card-img'>
+								<img src='songs/kannada_songs/img/${song.song_image}' style='height:200px; width: 100%; object-fit: cover;' alt=''>
+							</div>
+							<div class='card-desc'>
+								<h3>${song.song_name}</h3>
+								<p class="text-muted">Singer: ${song.singer_name}</p>
+								<p class="text-muted">Movie: ${song.movie_name}</p>
+								<audio controls preload='none'> 
+									<source src='songs/kannada_songs/${song.audio_file}' type='audio/mp3'>
+								</audio>
+								<br>
+								<button onclick="handleFavorite('${song.song_id}', '${song.song_name}', '${song.singer_name}', '${song.song_image}', '${song.audio_file}')" style='color:red;' class='btn-card'><i class='fa fa-heart'></i> Favorite</button>
+							</div>
+						</div>
+					</div>
+				`;
+			});
+			container.innerHTML = html;
+		}
+
+		function handleFavorite(songId, songName, singerName, songImage, audioFile) {
+			const res = addFavorite(songId, '1', songName, singerName, songImage, audioFile, 'kannada_songs');
+			if (res.success) {
+				sweetAlert("Added", "<b>Song " + songName + " is successfully added to your favorite songs</b>", "success");
+			} else {
+				sweetAlert("Warning", "<b>" + res.message + "</b>", "error");
+			}
+		}
+	</script>
+	<script src="js/SmoothScroll.min.js "></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"></script>
+</body>
+
+</html>

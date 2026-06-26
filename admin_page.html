@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Musical World - Admin Panel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="icon" href="images/i1.png" />
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<!-- font-awesome icons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- SweetAlert2 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.min.css">
+	<!--webfonts-->
+	<link href="//fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+
+	<style>
+		.container-admin {
+			padding: 40px 15px;
+			background: #fdfdfd;
+		}
+		.upload-header {
+			background-color: #3f51b5;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+			margin-bottom: 20px;
+			border-radius: 4px;
+		}
+		.admin-form {
+			background: #fff;
+			padding: 25px;
+			border-radius: 6px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+			margin-bottom: 40px;
+		}
+		th {
+			background-color: #3f51b5;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header -->
+	<header></header>
+	<!-- //header -->
+
+	<div class="container container-admin">
+		<h2 class="text-center font-weight-bold mb-5 text-uppercase">Admin Control Panel</h2>
+
+		<!-- ==================== KANNADA UPLOADS ==================== -->
+		<div class="upload-header font-weight-bold text-uppercase">Kannada Songs Panel</div>
+		<form class="admin-form" onsubmit="handleUpload(event, '1', 'k')">
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="kannadaAudio">Audio File</label>
+						<input type="file" class="form-control-file" id="kannadaAudio" required>
+					</div>
+				</div>		
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="kannadaName" class="form-control validate" required>
+						<label for="kannadaName">Song Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="kannadaFormat" class="form-control validate" required>
+						<label for="kannadaFormat">Song Format</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-row align-items-center">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="kannadaImage">Cover Image</label>
+						<input type="file" class="form-control-file" id="kannadaImage" required>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="kannadaSinger" class="form-control validate" required>
+						<label for="kannadaSinger">Singer Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="kannadaMovie" class="form-control validate" required>
+						<label for="kannadaMovie">Movie Name</label>
+					</div>
+				</div>
+				<div class="col text-center">
+					<button type="submit" class="btn btn-default btn-rounded mb-4">Upload <i class="fa fa-upload"></i></button>
+				</div>
+			</div>	
+		</form>
+
+		<div class="card mb-5">
+			<h3 class="card-header text-center font-weight-bold text-uppercase py-3">Kannada Songs Table</h3>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped text-center">
+						<thead>
+							<tr>
+								<th class="text-center">Song ID</th>
+								<th class="text-center">Song Name</th>
+								<th class="text-center">Song Format</th>
+								<th class="text-center">Singer Name</th>
+								<th class="text-center">Movie Name</th>
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody id="kannadaTableBody">
+							<!-- Populated dynamically -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- ==================== HINDI UPLOADS ==================== -->
+		<div class="upload-header font-weight-bold text-uppercase">Hindi Songs Panel</div>
+		<form class="admin-form" onsubmit="handleUpload(event, '2', 'h')">
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="hindiAudio">Audio File</label>
+						<input type="file" class="form-control-file" id="hindiAudio" required>
+					</div>
+				</div>		
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="hindiName" class="form-control validate" required>
+						<label for="hindiName">Song Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="hindiFormat" class="form-control validate" required>
+						<label for="hindiFormat">Song Format</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-row align-items-center">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="hindiImage">Cover Image</label>
+						<input type="file" class="form-control-file" id="hindiImage" required>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="hindiSinger" class="form-control validate" required>
+						<label for="hindiSinger">Singer Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="hindiMovie" class="form-control validate" required>
+						<label for="hindiMovie">Movie Name</label>
+					</div>
+				</div>
+				<div class="col text-center">
+					<button type="submit" class="btn btn-default btn-rounded mb-4">Upload <i class="fa fa-upload"></i></button>
+				</div>
+			</div>	
+		</form>
+
+		<div class="card mb-5">
+			<h3 class="card-header text-center font-weight-bold text-uppercase py-3">Hindi Songs Table</h3>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped text-center">
+						<thead>
+							<tr>
+								<th class="text-center">Song ID</th>
+								<th class="text-center">Song Name</th>
+								<th class="text-center">Song Format</th>
+								<th class="text-center">Singer Name</th>
+								<th class="text-center">Movie Name</th>
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody id="hindiTableBody">
+							<!-- Populated dynamically -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- ==================== ENGLISH UPLOADS ==================== -->
+		<div class="upload-header font-weight-bold text-uppercase">English Songs Panel</div>
+		<form class="admin-form" onsubmit="handleUpload(event, '3', 'e')">
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="englishAudio">Audio File</label>
+						<input type="file" class="form-control-file" id="englishAudio" required>
+					</div>
+				</div>		
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="englishName" class="form-control validate" required>
+						<label for="englishName">Song Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="englishFormat" class="form-control validate" required>
+						<label for="englishFormat">Song Format</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-row align-items-center">
+				<div class="col">
+					<div class="form-group btn btn-primary">
+						<label for="englishImage">Cover Image</label>
+						<input type="file" class="form-control-file" id="englishImage" required>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="englishSinger" class="form-control validate" required>
+						<label for="englishSinger">Singer Name</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="md-form mb-4">
+						<input type="text" id="englishMovie" class="form-control validate" required>
+						<label for="englishMovie">Movie Name</label>
+					</div>
+				</div>
+				<div class="col text-center">
+					<button type="submit" class="btn btn-default btn-rounded mb-4">Upload <i class="fa fa-upload"></i></button>
+				</div>
+			</div>	
+		</form>
+
+		<div class="card mb-5">
+			<h3 class="card-header text-center font-weight-bold text-uppercase py-3">English Songs Table</h3>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped text-center">
+						<thead>
+							<tr>
+								<th class="text-center">Song ID</th>
+								<th class="text-center">Song Name</th>
+								<th class="text-center">Song Format</th>
+								<th class="text-center">Singer Name</th>
+								<th class="text-center">Movie Name</th>
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+						<tbody id="englishTableBody">
+							<!-- Populated dynamically -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- copyright -->
+	<div class="cpy-right text-center font-weight-bold text-white py-3">
+		<p>© 2026 Musical World. All rights reserved | Design by Vijay</p>
+	</div>
+	<!-- //copyright -->
+
+	<!-- Database & State Script -->
+	<script src="js/db.js"></script>
+	<!-- js-->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/js/mdb.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.11/dist/sweetalert2.all.min.js"></script>
+	<!-- start-smooth-scrolling -->
+	<script src="js/move-top.js "></script>
+	<script src="js/easing.js "></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			const user = checkSession();
+			// Ensure only admin can access
+			if (user && user.email_address === 'vijaymahes9080@gmail.com') {
+				renderNavbar('Admin Panel');
+				
+				const brandLink = document.querySelector('.navbar-brand');
+				if (brandLink) {
+					brandLink.href = 'admin_page.html';
+				}
+				
+				loadTables();
+			} else {
+				window.location.href = 'profile.html';
+			}
+		});
+
+		function loadTables() {
+			const db = getSongsDatabase();
+			
+			// Load Kannada Table
+			renderCategoryTable('kannadaTableBody', db['1'], '1');
+			// Load Hindi Table
+			renderCategoryTable('hindiTableBody', db['2'], '2');
+			// Load English Table
+			renderCategoryTable('englishTableBody', db['3'], '3');
+		}
+
+		function renderCategoryTable(tbodyId, songsList, catId) {
+			const tbody = document.getElementById(tbodyId);
+			let html = '';
+			songsList.forEach((song, idx) => {
+				html += `
+					<tr>
+						<td>${song.song_id}</td>
+						<td>${song.song_name}</td>
+						<td>${song.song_format}</td>
+						<td>${song.singer_name}</td>
+						<td>${song.movie_name}</td>
+						<td>
+							<button onclick="handleDelete('${song.song_id}', '${catId}', '${song.song_name}')" class="btn btn-danger btn-rounded btn-sm my-0">Delete Song <i class="fa fa-trash"></i></button>
+						</td>
+					</tr>
+				`;
+			});
+			tbody.innerHTML = html;
+		}
+
+		function handleUpload(event, catId, prefix) {
+			event.preventDefault();
+			const audioInput = document.getElementById(prefix + 'Audio');
+			const imageInput = document.getElementById(prefix + 'Image');
+			
+			const songName = document.getElementById(prefix + 'Name').value;
+			const songFormat = document.getElementById(prefix + 'Format').value;
+			const singerName = document.getElementById(prefix + 'Singer').value;
+			const movieName = document.getElementById(prefix + 'Movie').value;
+
+			// Extract filenames from file inputs
+			const audioFile = audioInput.files[0] ? audioInput.files[0].name : '';
+			const songImage = imageInput.files[0] ? imageInput.files[0].name : '';
+
+			const db = getSongsDatabase();
+			const categoryDir = catId === '1' ? 'kannada_songs' : (catId === '2' ? 'hindi_songs' : 'english_songs');
+			
+			const newSong = {
+				song_id: prefix + '_' + Date.now(),
+				song_name: songName,
+				singer_name: singerName,
+				movie_name: movieName,
+				song_image: songImage || 'default.jpg',
+				audio_file: audioFile || 'default.mp3',
+				category_dir: categoryDir
+			};
+
+			db[catId].push(newSong);
+			saveSongsDatabase(db);
+			
+			sweetAlert("Uploaded", "<b>Successfully uploaded " + songName + "</b>", "success");
+			
+			// Clear fields
+			event.target.reset();
+			loadTables();
+		}
+
+		function handleDelete(songId, catId, songName) {
+			const db = getSongsDatabase();
+			db[catId] = db[catId].filter(s => s.song_id !== songId);
+			saveSongsDatabase(db);
+			
+			sweetAlert("Deleted", "<b>Successfully deleted " + songName + "</b>", "success");
+			loadTables();
+		}
+	</script>
+	<script src="js/SmoothScroll.min.js "></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js"></script>
+</body>
+
+</html>
